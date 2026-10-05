@@ -8,6 +8,7 @@ function StateHandling() {
 
   const [catHeight, setCatHeight] = useState(200);
   const [catWidth, setCatWidth] = useState(200);
+  const [catAngle, setCatAngle] = useState(30);
 
   function changeColor() {
     setRed(Math.floor(Math.random() * 256));
@@ -23,6 +24,10 @@ function StateHandling() {
     setCatWidth(catWidth + 10);
   }
 
+  function rotate() {
+    setCatAngle(catAngle + 30);
+  }
+
   return (
     <div>
       <h2>Change BG Color</h2>
@@ -35,7 +40,15 @@ function StateHandling() {
           width: "300px",
         }}
       >
-        <img src={image} alt="cat" height={catHeight} width={catWidth} />
+        <img
+          src={image}
+          alt="cat"
+          height={catHeight}
+          width={catWidth}
+          style={{
+            transform: `rotate(${catAngle}deg)`,
+          }}
+        />
       </div>
 
       <br />
@@ -45,6 +58,12 @@ function StateHandling() {
       <button onClick={enhanceHeight}>Increase Height</button>
 
       <button onClick={enhanceWidth}>Increase Width</button>
+
+      <button onClick={rotate}>Rotate</button>
+
+      <h3>
+        Height: {catHeight}px | Width: {catWidth}px | Angle: {catAngle}°
+      </h3>
     </div>
   );
 }
