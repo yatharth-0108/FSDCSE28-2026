@@ -1,19 +1,13 @@
 import React, { useState } from "react";
+import image from "../assets/cat.png";
 
 function StateHandling() {
   const [red, setRed] = useState(0);
   const [green, setGreen] = useState(0);
   const [blue, setBlue] = useState(0);
 
-  const [count, setCount] = useState(50);
-
-  function increment() {
-    setCount(count + 20);
-  }
-
-  function decrement() {
-    setCount(count - 20);
-  }
+  const [catHeight, setCatHeight] = useState(200);
+  const [catWidth, setCatWidth] = useState(200);
 
   function changeColor() {
     setRed(Math.floor(Math.random() * 256));
@@ -21,9 +15,17 @@ function StateHandling() {
     setBlue(Math.floor(Math.random() * 256));
   }
 
+  function enhanceHeight() {
+    setCatHeight(catHeight + 10);
+  }
+
+  function enhanceWidth() {
+    setCatWidth(catWidth + 10);
+  }
+
   return (
     <div>
-      <h2>Change BG</h2>
+      <h2>Change BG Color</h2>
 
       <div
         style={{
@@ -32,17 +34,17 @@ function StateHandling() {
           height: "200px",
           width: "300px",
         }}
-      ></div>
+      >
+        <img src={image} alt="cat" height={catHeight} width={catWidth} />
+      </div>
 
       <br />
 
-      <button onClick={changeColor}>Change Color</button>
+      <button onClick={changeColor}>Change BG Color</button>
 
-      <h2>Count: {count}</h2>
+      <button onClick={enhanceHeight}>Increase Height</button>
 
-      <button onClick={increment}>Increment</button>
-
-      <button onClick={decrement}>Decrement</button>
+      <button onClick={enhanceWidth}>Increase Width</button>
     </div>
   );
 }
