@@ -1,7 +1,11 @@
-import StateHandling from "./components/statehandling";
+import Products from "./components/Products";
 
 function App() {
-  return <StateHandling />;
+  return (
+    <div>
+      <Products />
+    </div>
+  );
 }
 
 export default App;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Product() {
+function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Product() {
       {products.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
-          <p>{product.price}</p>
+          <p>${product.price}</p>
           <p>{product.description}</p>
         </div>
       ))}
@@ -34,4 +34,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default Products;
